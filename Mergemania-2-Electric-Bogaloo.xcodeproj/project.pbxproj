@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8461E2882540A7B500BF8767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461E2872540A7B500BF8767 /* AppDelegate.swift */; };
+		8461E28A2540A7B500BF8767 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8461E2892540A7B500BF8767 /* GameScene.sks */; };
+		8461E28C2540A7B500BF8767 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8461E28B2540A7B500BF8767 /* Actions.sks */; };
+		8461E28E2540A7B500BF8767 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461E28D2540A7B500BF8767 /* GameScene.swift */; };
+		8461E2902540A7B500BF8767 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461E28F2540A7B500BF8767 /* GameViewController.swift */; };
+		8461E2932540A7B500BF8767 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8461E2912540A7B500BF8767 /* Main.storyboard */; };
+		8461E2952540A7B700BF8767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8461E2942540A7B700BF8767 /* Assets.xcassets */; };
+		8461E2982540A7B700BF8767 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8461E2962540A7B700BF8767 /* LaunchScreen.storyboard */; };
+		8461E2A32540A7B700BF8767 /* Mergemania_2_Electric_BogalooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461E2A22540A7B700BF8767 /* Mergemania_2_Electric_BogalooTests.swift */; };
+		8461E2AE2540A7B700BF8767 /* Mergemania_2_Electric_BogalooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461E2AD2540A7B700BF8767 /* Mergemania_2_Electric_BogalooUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8461E29F2540A7B700BF8767 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8461E27C2540A7B500BF8767 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8461E2832540A7B500BF8767;
+			remoteInfo = "Mergemania-2-Electric-Bogaloo";
+		};
+		8461E2AA2540A7B700BF8767 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8461E27C2540A7B500BF8767 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8461E2832540A7B500BF8767;
+			remoteInfo = "Mergemania-2-Electric-Bogaloo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8461E2842540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mergemania-2-Electric-Bogaloo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8461E2872540A7B500BF8767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8461E2892540A7B500BF8767 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		8461E28B2540A7B500BF8767 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		8461E28D2540A7B500BF8767 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8461E28F2540A7B500BF8767 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8461E2922540A7B500BF8767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8461E2942540A7B700BF8767 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8461E2972540A7B700BF8767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8461E2992540A7B700BF8767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8461E29E2540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mergemania-2-Electric-BogalooTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8461E2A22540A7B700BF8767 /* Mergemania_2_Electric_BogalooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mergemania_2_Electric_BogalooTests.swift; sourceTree = "<group>"; };
+		8461E2A42540A7B700BF8767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8461E2A92540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mergemania-2-Electric-BogalooUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8461E2AD2540A7B700BF8767 /* Mergemania_2_Electric_BogalooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mergemania_2_Electric_BogalooUITests.swift; sourceTree = "<group>"; };
+		8461E2AF2540A7B700BF8767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8461E2812540A7B500BF8767 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8461E29B2540A7B700BF8767 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8461E2A62540A7B700BF8767 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8461E27B2540A7B500BF8767 = {
+			isa = PBXGroup;
+			children = (
+				8461E2862540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo */,
+				8461E2A12540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests */,
+				8461E2AC2540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests */,
+				8461E2852540A7B500BF8767 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8461E2852540A7B500BF8767 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8461E2842540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo.app */,
+				8461E29E2540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests.xctest */,
+				8461E2A92540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8461E2862540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo */ = {
+			isa = PBXGroup;
+			children = (
+				8461E2872540A7B500BF8767 /* AppDelegate.swift */,
+				8461E2892540A7B500BF8767 /* GameScene.sks */,
+				8461E28B2540A7B500BF8767 /* Actions.sks */,
+				8461E28D2540A7B500BF8767 /* GameScene.swift */,
+				8461E28F2540A7B500BF8767 /* GameViewController.swift */,
+				8461E2912540A7B500BF8767 /* Main.storyboard */,
+				8461E2942540A7B700BF8767 /* Assets.xcassets */,
+				8461E2962540A7B700BF8767 /* LaunchScreen.storyboard */,
+				8461E2992540A7B700BF8767 /* Info.plist */,
+			);
+			path = "Mergemania-2-Electric-Bogaloo";
+			sourceTree = "<group>";
+		};
+		8461E2A12540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests */ = {
+			isa = PBXGroup;
+			children = (
+				8461E2A22540A7B700BF8767 /* Mergemania_2_Electric_BogalooTests.swift */,
+				8461E2A42540A7B700BF8767 /* Info.plist */,
+			);
+			path = "Mergemania-2-Electric-BogalooTests";
+			sourceTree = "<group>";
+		};
+		8461E2AC2540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8461E2AD2540A7B700BF8767 /* Mergemania_2_Electric_BogalooUITests.swift */,
+				8461E2AF2540A7B700BF8767 /* Info.plist */,
+			);
+			path = "Mergemania-2-Electric-BogalooUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8461E2832540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8461E2B22540A7B700BF8767 /* Build configuration list for PBXNativeTarget "Mergemania-2-Electric-Bogaloo" */;
+			buildPhases = (
+				8461E2802540A7B500BF8767 /* Sources */,
+				8461E2812540A7B500BF8767 /* Frameworks */,
+				8461E2822540A7B500BF8767 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mergemania-2-Electric-Bogaloo";
+			productName = "Mergemania-2-Electric-Bogaloo";
+			productReference = 8461E2842540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8461E29D2540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8461E2B52540A7B700BF8767 /* Build configuration list for PBXNativeTarget "Mergemania-2-Electric-BogalooTests" */;
+			buildPhases = (
+				8461E29A2540A7B700BF8767 /* Sources */,
+				8461E29B2540A7B700BF8767 /* Frameworks */,
+				8461E29C2540A7B700BF8767 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8461E2A02540A7B700BF8767 /* PBXTargetDependency */,
+			);
+			name = "Mergemania-2-Electric-BogalooTests";
+			productName = "Mergemania-2-Electric-BogalooTests";
+			productReference = 8461E29E2540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8461E2A82540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8461E2B82540A7B700BF8767 /* Build configuration list for PBXNativeTarget "Mergemania-2-Electric-BogalooUITests" */;
+			buildPhases = (
+				8461E2A52540A7B700BF8767 /* Sources */,
+				8461E2A62540A7B700BF8767 /* Frameworks */,
+				8461E2A72540A7B700BF8767 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8461E2AB2540A7B700BF8767 /* PBXTargetDependency */,
+			);
+			name = "Mergemania-2-Electric-BogalooUITests";
+			productName = "Mergemania-2-Electric-BogalooUITests";
+			productReference = 8461E2A92540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8461E27C2540A7B500BF8767 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = admin;
+				TargetAttributes = {
+					8461E2832540A7B500BF8767 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					8461E29D2540A7B700BF8767 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 8461E2832540A7B500BF8767;
+					};
+					8461E2A82540A7B700BF8767 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 8461E2832540A7B500BF8767;
+					};
+				};
+			};
+			buildConfigurationList = 8461E27F2540A7B500BF8767 /* Build configuration list for PBXProject "Mergemania-2-Electric-Bogaloo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8461E27B2540A7B500BF8767;
+			productRefGroup = 8461E2852540A7B500BF8767 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8461E2832540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo */,
+				8461E29D2540A7B700BF8767 /* Mergemania-2-Electric-BogalooTests */,
+				8461E2A82540A7B700BF8767 /* Mergemania-2-Electric-BogalooUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8461E2822540A7B500BF8767 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8461E2932540A7B500BF8767 /* Main.storyboard in Resources */,
+				8461E28A2540A7B500BF8767 /* GameScene.sks in Resources */,
+				8461E2952540A7B700BF8767 /* Assets.xcassets in Resources */,
+				8461E2982540A7B700BF8767 /* LaunchScreen.storyboard in Resources */,
+				8461E28C2540A7B500BF8767 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8461E29C2540A7B700BF8767 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8461E2A72540A7B700BF8767 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8461E2802540A7B500BF8767 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8461E28E2540A7B500BF8767 /* GameScene.swift in Sources */,
+				8461E2902540A7B500BF8767 /* GameViewController.swift in Sources */,
+				8461E2882540A7B500BF8767 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8461E29A2540A7B700BF8767 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8461E2A32540A7B700BF8767 /* Mergemania_2_Electric_BogalooTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8461E2A52540A7B700BF8767 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8461E2AE2540A7B700BF8767 /* Mergemania_2_Electric_BogalooUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8461E2A02540A7B700BF8767 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8461E2832540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo */;
+			targetProxy = 8461E29F2540A7B700BF8767 /* PBXContainerItemProxy */;
+		};
+		8461E2AB2540A7B700BF8767 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8461E2832540A7B500BF8767 /* Mergemania-2-Electric-Bogaloo */;
+			targetProxy = 8461E2AA2540A7B700BF8767 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8461E2912540A7B500BF8767 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8461E2922540A7B500BF8767 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8461E2962540A7B700BF8767 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8461E2972540A7B700BF8767 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8461E2B02540A7B700BF8767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8461E2B12540A7B700BF8767 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8461E2B32540A7B700BF8767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mergemania-2-Electric-Bogaloo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shit.Mergemania-2-Electric-Bogaloo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8461E2B42540A7B700BF8767 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mergemania-2-Electric-Bogaloo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shit.Mergemania-2-Electric-Bogaloo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8461E2B62540A7B700BF8767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mergemania-2-Electric-BogalooTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shit.Mergemania-2-Electric-BogalooTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mergemania-2-Electric-Bogaloo.app/Mergemania-2-Electric-Bogaloo";
+			};
+			name = Debug;
+		};
+		8461E2B72540A7B700BF8767 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mergemania-2-Electric-BogalooTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shit.Mergemania-2-Electric-BogalooTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mergemania-2-Electric-Bogaloo.app/Mergemania-2-Electric-Bogaloo";
+			};
+			name = Release;
+		};
+		8461E2B92540A7B700BF8767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mergemania-2-Electric-BogalooUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shit.Mergemania-2-Electric-BogalooUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Mergemania-2-Electric-Bogaloo";
+			};
+			name = Debug;
+		};
+		8461E2BA2540A7B700BF8767 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mergemania-2-Electric-BogalooUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shit.Mergemania-2-Electric-BogalooUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Mergemania-2-Electric-Bogaloo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8461E27F2540A7B500BF8767 /* Build configuration list for PBXProject "Mergemania-2-Electric-Bogaloo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8461E2B02540A7B700BF8767 /* Debug */,
+				8461E2B12540A7B700BF8767 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8461E2B22540A7B700BF8767 /* Build configuration list for PBXNativeTarget "Mergemania-2-Electric-Bogaloo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8461E2B32540A7B700BF8767 /* Debug */,
+				8461E2B42540A7B700BF8767 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8461E2B52540A7B700BF8767 /* Build configuration list for PBXNativeTarget "Mergemania-2-Electric-BogalooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8461E2B62540A7B700BF8767 /* Debug */,
+				8461E2B72540A7B700BF8767 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8461E2B82540A7B700BF8767 /* Build configuration list for PBXNativeTarget "Mergemania-2-Electric-BogalooUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8461E2B92540A7B700BF8767 /* Debug */,
+				8461E2BA2540A7B700BF8767 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8461E27C2540A7B500BF8767 /* Project object */;
+}
