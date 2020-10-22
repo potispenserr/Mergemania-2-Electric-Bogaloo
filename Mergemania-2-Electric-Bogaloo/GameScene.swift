@@ -17,6 +17,7 @@ class GameScene: SKScene {
     let shape = CAShapeLayer()
     
     override func didMove(to view: SKView) {
+        print("life is pain")
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
