@@ -15,7 +15,23 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     var pointList = [Int: [CGPoint]]()
     let touches = [UIBezierPath]()
+    
+    
     var isTouching = false
+    var spinnyRect : SKShapeNode?
+    var spinnyCircle : SKShapeNode?
+    var spinnyTriangle : SKShapeNode?
+    
+    var greenRects = [SKShapeNode]()
+    var redRects = [SKShapeNode]()
+    var blueRects = [SKShapeNode]()
+    var yellowRects = [SKShapeNode]()
+    var pinkRects = [SKShapeNode]()
+    
+    var circles = [SKShapeNode]()
+    
+    var failure = false
+    
     
     override func didMove(to view: SKView) {
         print("life is pains")
@@ -28,8 +44,9 @@ class GameScene: SKScene {
         }
         
         // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        let w = (self.size.width + self.size.height) * 0.01
+        let miniw = (self.size.width + self.size.height) * 0.001
+        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: miniw, height: miniw), cornerRadius: miniw * 0.3)
         
         if let spinnyNode = self.spinnyNode {
             spinnyNode.lineWidth = 3
@@ -40,11 +57,145 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
         
-        let spinnyShit = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        spinnyShit.position = CGPoint(x: 100, y: 200)
-        spinnyShit.strokeColor = SKColor.yellow
-        spinnyShit.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(1), duration: 1)))
-        self.addChild(spinnyShit)
+        self.spinnyRect = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.0)
+        if let spinnyRect = self.spinnyRect {
+            spinnyRect.fillColor = SKColor.yellow
+            //spinnyRect.position = spinnyShitPoint
+            spinnyRect.strokeColor = SKColor.black
+            spinnyRect.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(1), duration: 1)))
+            
+        }
+        
+        //self.spinnyTriangle = SKShapeNode.init(path: <#T##CGPath#>)
+        
+        self.spinnyCircle = SKShapeNode.init(circleOfRadius: 50)
+        
+        if let spinnyCircle = self.spinnyCircle {
+            spinnyCircle.strokeColor = SKColor.black
+            spinnyCircle.fillColor = SKColor.green
+            
+        }
+        let screenSize = UIScreen.main.bounds
+        print("Screen width \(screenSize.width)")
+        print("Screen height \(screenSize.height)")
+        let screenWidth = Int(screenSize.width/2)
+        let screenHeight = Int(screenSize.height/2)
+        let screenMargins = 20
+        
+        //green rects
+        for _ in 1...5{
+            if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
+                
+                rect.position = CGPoint(x:
+                    Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                    y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+                    
+                rect.fillColor = SKColor.green
+                
+                greenRects.append(rect)
+                self.addChild(rect)
+                
+            }
+            
+        }
+        
+        //red rects
+        for _ in 1...5{
+            if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
+                
+                rect.position = CGPoint(x:
+                Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+                
+                rect.fillColor = SKColor.red
+                
+                redRects.append(rect)
+                self.addChild(rect)
+                
+            }
+            
+        }
+        
+        //blue rects
+        for _ in 1...5{
+            if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
+                
+                rect.position = CGPoint(x:
+                Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+                
+                rect.fillColor = SKColor.blue
+                
+                blueRects.append(rect)
+                self.addChild(rect)
+                
+            }
+            
+        }
+        
+        //yellow rects
+        for _ in 1...5{
+            if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
+                
+                rect.position = CGPoint(x:
+                Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+                
+                rect.fillColor = SKColor.yellow
+                
+                yellowRects.append(rect)
+                self.addChild(rect)
+                
+            }
+            
+        }
+        
+        //purple rects
+        for _ in 1...5{
+            if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
+                
+                rect.position = CGPoint(x:
+                Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+                
+                rect.fillColor = SKColor.magenta
+                
+                pinkRects.append(rect)
+                self.addChild(rect)
+                
+            }
+            
+        }
+        
+        
+        /*if let rect1 = self.spinnyRect?.copy() as! SKShapeNode?{
+            rect1.position = CGPoint(x: 100, y: 200)
+            //rectPoints.append(rect1.position)
+            greenRects.append(rect1)
+            self.addChild(rect1)
+            
+        }
+        
+        if let rect2 = self.spinnyRect?.copy() as! SKShapeNode?{
+            rect2.position = CGPoint(x: 50, y: 200)
+            //rectPoints.append(rect2.position)
+            greenRects.append(rect2)
+            self.addChild(rect2)
+        }
+        
+        if let rect3 = self.spinnyRect?.copy() as! SKShapeNode?{
+            rect3.position = CGPoint(x: 200, y: 200)
+            //rectPoints.append(rect3.position)
+            greenRects.append(rect3)
+            self.addChild(rect3)
+            
+        } */
+        
+        
+        
+        
+        
+        
     }
     
     
@@ -144,7 +295,8 @@ class GameScene: SKScene {
             self.touchMoved(toPoint: t.location(in: self))
             pointList[t.hash]?.append(t.location(in: self))
             if !checkList(points: &(pointList[t.hash])!){
-                print("yeetus deletus")
+                print("Failed before closing statements")
+                failure = true
             }
             
             
@@ -159,8 +311,7 @@ class GameScene: SKScene {
             pointList[t.hash]?.append(t.location(in: self))
             var good = true
             good = checkList(points: &((pointList[t.hash]))!)
-            print("kyaie")
-            if good {
+            if good && !failure {
                 let p1 = pointList[t.hash]?.first ?? CGPoint(x: 0, y: 0)
                 pointList[t.hash]?.append(p1)
                 if checkList(points: &(pointList[t.hash])!) {
@@ -168,7 +319,7 @@ class GameScene: SKScene {
                     pointList[t.hash]?.remove(at: lastIndex)
                     
                     let path = UIBezierPath()
-                    print("nothing is good")
+                    //print("nothing is good")
                     path.move(to: (pointList[t.hash]?.first ?? CGPoint(x: 0, y: 0)))
                     for points in pointList[t.hash]!{
                         path.addLine(to: points)
@@ -179,23 +330,234 @@ class GameScene: SKScene {
                     let shape = SKShapeNode(path: path.cgPath)
                     
                     
-                    shape.run(SKAction.sequence([SKAction.wait(forDuration: 3.5),
-                    SKAction.fadeOut(withDuration: 0.5),
+                    shape.fillColor = SKColor(red:   CGFloat(Float(arc4random_uniform(255))/255.0),
+                    green: CGFloat(arc4random_uniform(255))/255.0 ,
+                    blue:  CGFloat(arc4random_uniform(255))/255.0 ,
+                    alpha: 1.0)
+                    
+                    // fuck if I know
+                    shape.run(SKAction.sequence([SKAction.wait(forDuration: 0.4),
+                    SKAction.fadeOut(withDuration: 0.2),
                     SKAction.removeFromParent()]))
                     
+                    self.addChild(shape) // add path to display
+
+                    // lists of nodes to be merged
+                    var greenRectsRemove = [SKShapeNode]()
+                    var blueRectsRemove = [SKShapeNode]()
+                    var redRectsRemove = [SKShapeNode]()
+                    var yellowRectsRemove = [SKShapeNode]()
+                    var pinkRectsRemove = [SKShapeNode]()
+                    
+                    var circlesRemove = [SKShapeNode]()
+                    
+                    // average positions of nodes to be merged
+                    var greenRectAvgPos = CGPoint(x: 0,y: 0)
+                    var blueRectAvgPos = CGPoint(x: 0,y: 0)
+                    var redRectAvgPos = CGPoint(x: 0,y: 0)
+                    var yellowRectAvgPos = CGPoint(x: 0,y: 0)
+                    var pinkRectAvgPos = CGPoint(x: 0,y: 0)
+                    
+                    var circleAvgPos = CGPoint(x: 0,y: 0)
+                    
+                    // loop through objects in UI
+                    for child in self.children {
+                        // if node is inside path
+                        if path.contains(child.position) {
+                            // check if rectangle
+                            for r in greenRects {
+                                if child.hash == r.hash {
+                                    print("Ladies and gentlemen, we got a rect")
+                                    greenRectsRemove.append(child as! SKShapeNode)
+                                    greenRectAvgPos = CGPoint(
+                                        x: greenRectAvgPos.x + child.position.x,
+                                        y: greenRectAvgPos.y + child.position.y)
+                                    print(child.position)
+                                }
+                            }
+                            
+                            for r in redRects {
+                                if child.hash == r.hash {
+                                    print("Ladies and gentlemen, we got a rect")
+                                    redRectsRemove.append(child as! SKShapeNode)
+                                    redRectAvgPos = CGPoint(
+                                        x: redRectAvgPos.x + child.position.x,
+                                        y: redRectAvgPos.y + child.position.y)
+                                    print(child.position)
+                                }
+                            }
+                            
+                            for r in blueRects {
+                                if child.hash == r.hash {
+                                    print("Ladies and gentlemen, we got a rect")
+                                    blueRectsRemove.append(child as! SKShapeNode)
+                                    blueRectAvgPos = CGPoint(
+                                        x: blueRectAvgPos.x + child.position.x,
+                                        y: blueRectAvgPos.y + child.position.y)
+                                    print(child.position)
+                                }
+                            }
+                            
+                            for r in yellowRects {
+                                if child.hash == r.hash {
+                                    print("Ladies and gentlemen, we got a rect")
+                                    yellowRectsRemove.append(child as! SKShapeNode)
+                                    yellowRectAvgPos = CGPoint(
+                                        x: yellowRectAvgPos.x + child.position.x,
+                                        y: yellowRectAvgPos.y + child.position.y)
+                                    print(child.position)
+                                }
+                            }
+                            
+                            for r in pinkRects {
+                                if child.hash == r.hash {
+                                    print("Ladies and gentlemen, we got a rect")
+                                    pinkRectsRemove.append(child as! SKShapeNode)
+                                    pinkRectAvgPos = CGPoint(
+                                        x: pinkRectAvgPos.x + child.position.x,
+                                        y: pinkRectAvgPos.y + child.position.y)
+                                    print(child.position)
+                                }
+                            }
+                            
+                            
+                            
+                            // check if circle
+                            for c in circles {
+                                if child.hash == c.hash {
+                                    print("Ladies and gentlemen, we got a circle")
+                                    circlesRemove.append(child as! SKShapeNode)
+                                    circleAvgPos = CGPoint(
+                                        x: circleAvgPos.x + child.position.x,
+                                        y: circleAvgPos.y + child.position.y)
+                                }
+                            }
+                        }
+                    }
+                    // Calculate avg positions
+                    greenRectAvgPos = CGPoint(
+                        x: greenRectAvgPos.x / CGFloat(greenRectsRemove.count),
+                        y: greenRectAvgPos.y / CGFloat(greenRectsRemove.count))
+                    
+                    blueRectAvgPos = CGPoint(
+                    x: blueRectAvgPos.x / CGFloat(blueRectsRemove.count),
+                    y: blueRectAvgPos.y / CGFloat(blueRectsRemove.count))
+                    
+                    redRectAvgPos = CGPoint(
+                    x: redRectAvgPos.x / CGFloat(redRectsRemove.count),
+                    y: redRectAvgPos.y / CGFloat(redRectsRemove.count))
+                    
+                    yellowRectAvgPos = CGPoint(
+                    x: yellowRectAvgPos.x / CGFloat(yellowRectsRemove.count),
+                    y: yellowRectAvgPos.y / CGFloat(yellowRectsRemove.count))
+                    
+                    pinkRectAvgPos = CGPoint(
+                    x: pinkRectAvgPos.x / CGFloat(pinkRectsRemove.count),
+                    y: pinkRectAvgPos.y / CGFloat(pinkRectsRemove.count))
                     
                     
-                    self.addChild(shape)
+                    circleAvgPos = CGPoint(
+                        x: circleAvgPos.x / CGFloat(circlesRemove.count),
+                        y: circleAvgPos.y / CGFloat(circlesRemove.count))
+                    print(greenRectAvgPos)
+                    print(blueRectAvgPos)
+                    print(redRectAvgPos)
+                    print(yellowRectAvgPos)
+                    print(pinkRectAvgPos)
+                    print("R Rects: \(redRectsRemove.count)")
+                    print("G Rects: \(greenRectsRemove.count)")
+                    print("B Rects: \(blueRectsRemove.count)")
+                    print("Y Rects: \(yellowRectsRemove.count)")
+                    print("P Rects: \(pinkRectsRemove.count)")
+                    print("Circles: \(circlesRemove.count)")
+                    
+                    // multiple objects highlighted
+                    if min(greenRectsRemove.count,1) + min(circlesRemove.count,1) + min(redRectsRemove.count,1) + min(blueRectsRemove.count,1) + min(yellowRectsRemove.count,1) + min(pinkRectsRemove.count,1) > 1 {
+                        print("not so fast buddy")
+                    }
+                    // removing rects
+                    else if greenRectsRemove.count > 1 {
+                        print("git merge -r Grects")
+                        self.removeChildren(in: greenRectsRemove) // Remove all matching rects
+                        greenRectsRemove[0].position = greenRectAvgPos // Set first match to avg position
+                        self.addChild(greenRectsRemove[0]) // add it back to the screen
+                        let set = Set(greenRectsRemove[1..<greenRectsRemove.endIndex]) // get all elements except first (because we added it back)
+                        let filtered = greenRects.filter {!set.contains($0)} // filter out all the rest
+                        greenRects = filtered // set to new array
+                    }
+                        
+                    else if blueRectsRemove.count > 1 {
+                        print("git merge -r Brects")
+                        self.removeChildren(in: blueRectsRemove) // Remove all matching rects
+                        blueRectsRemove[0].position = blueRectAvgPos // Set first match to avg position
+                        self.addChild(blueRectsRemove[0]) // add it back to the screen
+                        let set = Set(blueRectsRemove[1..<blueRectsRemove.endIndex]) // get all elements except first (because we added it back)
+                        let filtered = blueRects.filter {!set.contains($0)} // filter out all the rest
+                        blueRects = filtered // set to new array
+                    }
+                    
+                    else if redRectsRemove.count > 1 {
+                        print("git merge -r Rrects")
+                        self.removeChildren(in: redRectsRemove) // Remove all matching rects
+                        redRectsRemove[0].position = redRectAvgPos // Set first match to avg position
+                        self.addChild(redRectsRemove[0]) // add it back to the screen
+                        let set = Set(redRectsRemove[1..<redRectsRemove.endIndex]) // get all elements except first (because we added it back)
+                        let filtered = redRects.filter {!set.contains($0)} // filter out all the rest
+                        redRects = filtered // set to new array
+                    }
+                        
+                    else if yellowRectsRemove.count > 1 {
+                        print("git merge -r Yrects")
+                        self.removeChildren(in: yellowRectsRemove) // Remove all matching rects
+                        yellowRectsRemove[0].position = yellowRectAvgPos // Set first match to avg position
+                        self.addChild(yellowRectsRemove[0]) // add it back to the screen
+                        let set = Set(yellowRectsRemove[1..<yellowRectsRemove.endIndex]) // get all elements except first (because we added it back)
+                        let filtered = yellowRects.filter {!set.contains($0)} // filter out all the rest
+                        yellowRects = filtered // set to new array
+                    }
+                        
+                    else if pinkRectsRemove.count > 1 {
+                        print("git merge -r Prects")
+                        self.removeChildren(in: pinkRectsRemove) // Remove all matching rects
+                        pinkRectsRemove[0].position = pinkRectAvgPos // Set first match to avg position
+                        self.addChild(pinkRectsRemove[0]) // add it back to the screen
+                        let set = Set(pinkRectsRemove[1..<pinkRectsRemove.endIndex]) // get all elements except first (because we added it back)
+                        let filtered = pinkRects.filter {!set.contains($0)} // filter out all the rest
+                        pinkRects = filtered // set to new array
+                    }
+                    // removing circles
+                    else if circlesRemove.count > 1 {
+                        print("git merge -c circles")
+                        self.removeChildren(in: circlesRemove) // Remove all matching circles
+                        circlesRemove[0].position = circleAvgPos // Set first match to avg position
+                        self.addChild(circlesRemove[0]) // add it back to the screen
+                        let set = Set(circlesRemove[1..<circlesRemove.endIndex]) // get all elements except first (because we added it back)
+                        
+                        let filtered = greenRects.filter {!set.contains($0)} // filter out all the rest
+                        circles = filtered // set to new array
+                    }
+                    // zero or one elements selected
+                    else{
+                        print("Mission failed we'll get 'em next time")
+                    }
+                    
+                    /*for rect in rectPoints{
+                        print(rect)
+                    }*/
                     
                     //print("Pointslist")
                     //print(pointList[t.hash]!)
-                    pointList[t.hash] = nil
-                    
+                    pointList[t.hash] = nil // clear out point list
                 }
             }
             
+            if failure {
+                print("Failure")
+                failure = false
+            }
+            
             if !good {
-                print("hippity hoppety")
+                print("Bad path detected")
             }
             
             
