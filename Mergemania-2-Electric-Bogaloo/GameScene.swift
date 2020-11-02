@@ -11,10 +11,16 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var label : SKLabelNode?
+    private var p1label : SKLabelNode?
+    private var p2label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     var pointList = [Int: [CGPoint]]()
     let touches = [UIBezierPath]()
+    
+    var p1touchHashes = [Int]() // List of touch hashes
+    var p2touchHashes = [Int]() // List of touch hashes
+    var p1score = 0
+    var p2score = 0
     
     
     var isTouching = false
@@ -28,17 +34,35 @@ class GameScene: SKScene {
     var yellowRects = [SKShapeNode]()
     var pinkRects = [SKShapeNode]()
     
+    let screenSize = UIScreen.main.bounds
+    
+    let screenMargins = 20
+    
+    var randomPos = CGPoint(x: 100, y: 100)
+    
     var circles = [SKShapeNode]()
     
     var failure = false
     
     
     override func didMove(to view: SKView) {
-        print("life is pains")
+        let screenWidth = Int(screenSize.width/2)
+        let screenHeight = Int(screenSize.height/2)
+        let screenMargins = 20
+        
+        print("life is pain")
+        print("Screen width \(screenSize.width)")
+        print("Screen height \(screenSize.height)")
+        
         
         // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
+        self.p1label = self.childNode(withName: "//p1s") as? SKLabelNode
+        if let label = self.p1label {
+            label.alpha = 0.0
+            label.run(SKAction.fadeIn(withDuration: 2.0))
+        }
+        self.p2label = self.childNode(withName: "//p2s") as? SKLabelNode
+        if let label = self.p2label {
             label.alpha = 0.0
             label.run(SKAction.fadeIn(withDuration: 2.0))
         }
@@ -64,6 +88,10 @@ class GameScene: SKScene {
             spinnyRect.strokeColor = SKColor.black
             spinnyRect.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(1), duration: 1)))
             
+            //shape.run(SKAction.sequence([SKAction.wait(forDuration: 0.4),
+            //SKAction.fadeOut(withDuration: 0.2),
+            //SKAction.removeFromParent()]))
+            
         }
         
         //self.spinnyTriangle = SKShapeNode.init(path: <#T##CGPath#>)
@@ -75,22 +103,28 @@ class GameScene: SKScene {
             spinnyCircle.fillColor = SKColor.green
             
         }
-        let screenSize = UIScreen.main.bounds
-        print("Screen width \(screenSize.width)")
-        print("Screen height \(screenSize.height)")
-        let screenWidth = Int(screenSize.width/2)
-        let screenHeight = Int(screenSize.height/2)
-        let screenMargins = 20
+        
         
         //green rects
-        for _ in 1...5{
+        for index in 1...5{
             if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                print("xpos: \(xpos)")
+                print("ypos: \(ypos)")
                 
                 rect.position = CGPoint(x:
                     Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
                     y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+                print("created green rect \(index) heading to x: \(xpos) y: \(ypos)")
                     
                 rect.fillColor = SKColor.green
+                var moveRect = SKAction.move(to: CGPoint(x:
+                xpos,
+                y: ypos), duration: 20)
+                
+                
+                rect.run(moveRect)
                 
                 greenRects.append(rect)
                 self.addChild(rect)
@@ -102,12 +136,23 @@ class GameScene: SKScene {
         //red rects
         for _ in 1...5{
             if let rect = self.spinnyRect?.copy() as! SKShapeNode?{
-                
                 rect.position = CGPoint(x:
                 Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
                 y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
                 
                 rect.fillColor = SKColor.red
+                
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                
+                rect.position = CGPoint(x:
+                    Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                    y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+
+
+                let moveRect = SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20)
+                
+                rect.run(moveRect)
                 
                 redRects.append(rect)
                 self.addChild(rect)
@@ -126,6 +171,18 @@ class GameScene: SKScene {
                 
                 rect.fillColor = SKColor.blue
                 
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                
+                rect.position = CGPoint(x:
+                    Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                    y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+
+
+                let moveRect = SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20)
+                
+                rect.run(moveRect)
+                
                 blueRects.append(rect)
                 self.addChild(rect)
                 
@@ -142,6 +199,18 @@ class GameScene: SKScene {
                 y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
                 
                 rect.fillColor = SKColor.yellow
+                
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                
+                rect.position = CGPoint(x:
+                    Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                    y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+
+
+                let moveRect = SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20)
+                
+                rect.run(moveRect)
                 
                 yellowRects.append(rect)
                 self.addChild(rect)
@@ -160,12 +229,67 @@ class GameScene: SKScene {
                 
                 rect.fillColor = SKColor.magenta
                 
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                
+                rect.position = CGPoint(x:
+                    Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
+                    y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
+
+
+                let moveRect = SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20)
+                
+                rect.run(moveRect)
+                
                 pinkRects.append(rect)
                 self.addChild(rect)
                 
             }
             
         }
+        let line = SKShapeNode()
+        let pathToDraw = CGMutablePath()
+        pathToDraw.move(to: CGPoint(x: -screenWidth, y: 0))
+        pathToDraw.addLine(to: CGPoint(x: screenWidth, y: 0))
+        line.path = pathToDraw
+        line.strokeColor = SKColor.white
+        self.addChild(line)
+        
+        let timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { timer in
+            print("You're fired!")
+            
+            
+            for rect in self.greenRects{
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                rect.run(SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20))
+            }
+            
+            for rect in self.blueRects{
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                rect.run(SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20))
+            }
+            
+            for rect in self.redRects{
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                rect.run(SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20))
+            }
+            
+            for rect in self.yellowRects{
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                rect.run(SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20))
+            }
+            
+            for rect in self.pinkRects{
+                let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
+                let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
+                rect.run(SKAction.move(to: CGPoint(x: xpos, y: ypos), duration: 20))
+            }
+        }
+        
         
         
         /*if let rect1 = self.spinnyRect?.copy() as! SKShapeNode?{
@@ -273,15 +397,22 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if let label = self.label {
+        /*if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+        }*/
         
         for t in touches {
             self.touchDown(atPoint: t.location(in: self))
             
             pointList[t.hash] = [CGPoint]()
             pointList[t.hash]?.append(t.location(in: self))
+            
+            if t.location(in: self).y > 0 {
+                p2touchHashes.append(t.hashValue)
+            }
+            else {
+                p1touchHashes.append(t.hashValue)
+            }
             //pointList[t.hash].append(t.location(in: self))
             //print(pointList[t.hash] ?? "save me from the nothing i've become")
             
@@ -470,6 +601,8 @@ class GameScene: SKScene {
                     print("Y Rects: \(yellowRectsRemove.count)")
                     print("P Rects: \(pinkRectsRemove.count)")
                     print("Circles: \(circlesRemove.count)")
+
+                    var score = 0
                     
                     // multiple objects highlighted
                     if min(greenRectsRemove.count,1) + min(circlesRemove.count,1) + min(redRectsRemove.count,1) + min(blueRectsRemove.count,1) + min(yellowRectsRemove.count,1) + min(pinkRectsRemove.count,1) > 1 {
@@ -477,6 +610,10 @@ class GameScene: SKScene {
                     }
                     // removing rects
                     else if greenRectsRemove.count > 1 {
+                        score = 1
+                        for _ in 2...greenRectsRemove.count {
+                            score *= 10
+                        }
                         print("git merge -r Grects")
                         self.removeChildren(in: greenRectsRemove) // Remove all matching rects
                         greenRectsRemove[0].position = greenRectAvgPos // Set first match to avg position
@@ -487,6 +624,10 @@ class GameScene: SKScene {
                     }
                         
                     else if blueRectsRemove.count > 1 {
+                        score = 1
+                        for _ in 2...blueRectsRemove.count {
+                            score *= 10
+                        }
                         print("git merge -r Brects")
                         self.removeChildren(in: blueRectsRemove) // Remove all matching rects
                         blueRectsRemove[0].position = blueRectAvgPos // Set first match to avg position
@@ -497,6 +638,10 @@ class GameScene: SKScene {
                     }
                     
                     else if redRectsRemove.count > 1 {
+                        score = 1
+                        for _ in 2...redRectsRemove.count {
+                            score *= 10
+                        }
                         print("git merge -r Rrects")
                         self.removeChildren(in: redRectsRemove) // Remove all matching rects
                         redRectsRemove[0].position = redRectAvgPos // Set first match to avg position
@@ -507,6 +652,10 @@ class GameScene: SKScene {
                     }
                         
                     else if yellowRectsRemove.count > 1 {
+                        score = 1
+                        for _ in 2...yellowRectsRemove.count {
+                            score *= 10
+                        }
                         print("git merge -r Yrects")
                         self.removeChildren(in: yellowRectsRemove) // Remove all matching rects
                         yellowRectsRemove[0].position = yellowRectAvgPos // Set first match to avg position
@@ -517,6 +666,10 @@ class GameScene: SKScene {
                     }
                         
                     else if pinkRectsRemove.count > 1 {
+                        score = 1
+                        for _ in 2...pinkRectsRemove.count {
+                            score *= 10
+                        }
                         print("git merge -r Prects")
                         self.removeChildren(in: pinkRectsRemove) // Remove all matching rects
                         pinkRectsRemove[0].position = pinkRectAvgPos // Set first match to avg position
@@ -527,6 +680,10 @@ class GameScene: SKScene {
                     }
                     // removing circles
                     else if circlesRemove.count > 1 {
+                        score = 1
+                        for _ in 2...circlesRemove.count {
+                            score *= 10
+                        }
                         print("git merge -c circles")
                         self.removeChildren(in: circlesRemove) // Remove all matching circles
                         circlesRemove[0].position = circleAvgPos // Set first match to avg position
@@ -540,6 +697,79 @@ class GameScene: SKScene {
                     else{
                         print("Mission failed we'll get 'em next time")
                     }
+                    
+                    print("I'm gonna score the players so hard")
+                    
+                    if p1touchHashes.contains(t.hashValue) {
+                        p1score += score
+                        let farray = p1touchHashes.filter {$0 != t.hashValue}
+                        p1touchHashes = farray
+                        p1label?.text = "Player 1 Score: \(p1score)"
+                        
+                        if greenRects.count < 2 ||
+                            blueRects.count < 2 ||
+                            redRects.count < 2 ||
+                            yellowRects.count < 2 ||
+                            pinkRects.count < 2 {
+                            
+                            let gvc = self.view?.window?.rootViewController as! GameViewController
+                            gvc.gameState = GameViewController.WhoWon.Player1
+                            gvc.maxPoints = p1score
+
+                            // Load game scene?
+                            if let view = self.view {
+                                // Load the SKScene from 'GameScene.sks'
+                                if let scene = SKScene(fileNamed: "MyScene") {
+                                    // Set the scale mode to scale to fit the window
+                                    scene.scaleMode = .aspectFill
+                                    
+                                    // Present the scene
+                                    view.presentScene(scene)
+                                }
+                                
+                                view.ignoresSiblingOrder = true
+                                
+                                view.showsFPS = true
+                                view.showsNodeCount = true
+                            }
+                        }
+                    }
+                    if p2touchHashes.contains(t.hashValue) {
+                        p2score += score
+                        let farray = p2touchHashes.filter {$0 != t.hashValue}
+                        p2touchHashes = farray
+                        p2label?.text = "Player 2 Score: \(p2score)"
+                        
+                        if greenRects.count < 2 ||
+                            blueRects.count < 2 ||
+                            redRects.count < 2 ||
+                            yellowRects.count < 2 ||
+                            pinkRects.count < 2 {
+                            
+                            let gvc = self.view?.window?.rootViewController as! GameViewController
+                            gvc.gameState = GameViewController.WhoWon.Player2
+                            gvc.maxPoints = p2score
+
+                            // Load game scene?
+                            if let view = self.view {
+                                // Load the SKScene from 'GameScene.sks'
+                                if let scene = SKScene(fileNamed: "MyScene") {
+                                    // Set the scale mode to scale to fit the window
+                                    scene.scaleMode = .aspectFill
+                                    
+                                    // Present the scene
+                                    view.presentScene(scene)
+                                }
+                                
+                                view.ignoresSiblingOrder = true
+                                
+                                view.showsFPS = true
+                                view.showsNodeCount = true
+                            }
+                        }
+                    }
+                    
+                    print("P1 score = \(p1score), P2 score = \(p2score)")
                     
                     /*for rect in rectPoints{
                         print(rect)
