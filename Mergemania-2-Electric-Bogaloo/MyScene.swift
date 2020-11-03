@@ -45,7 +45,6 @@ class MyScene: SKScene {
         button?.position = CGPoint(x: 0,y: 0)
         
         // Get label node from scene and store it for use later
-        //self.p1label = self.childNode(withName: "//p1s") as? SKLabelNode
         
         button = SKLabelNode(text: "Play")
         button!.position = CGPoint(x: 0, y: 200)
@@ -63,11 +62,10 @@ class MyScene: SKScene {
                     highScoreText.attributedPlaceholder = NSAttributedString(string:"Player 2 name:", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
                 }
                 highScoreText.textColor = UIColor.white
-                //highScoreText.backgroundColor = UIColor.gray
                 self.view!.addSubview(highScoreText)
                 //txtTitle
                 
-                dab = SKLabelNode(text: "Submit (to the temptation)")
+                dab = SKLabelNode(text: "Submit score")
                 
                 //let bs = /self.size.width*self.frame.width
                 dab!.position = CGPoint(

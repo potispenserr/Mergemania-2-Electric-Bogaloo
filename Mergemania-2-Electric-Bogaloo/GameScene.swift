@@ -25,8 +25,6 @@ class GameScene: SKScene {
     
     var isTouching = false
     var spinnyRect : SKShapeNode?
-    var spinnyCircle : SKShapeNode?
-    var spinnyTriangle : SKShapeNode?
     
     var greenRects = [SKShapeNode]()
     var redRects = [SKShapeNode]()
@@ -37,11 +35,7 @@ class GameScene: SKScene {
     let screenSize = UIScreen.main.bounds
     
     let screenMargins = 20
-    
-    var randomPos = CGPoint(x: 100, y: 100)
-    
-    var circles = [SKShapeNode]()
-    
+            
     var failure = false
     
     
@@ -81,28 +75,17 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
         
+        //create a node to use for all game objects
         self.spinnyRect = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.0)
         if let spinnyRect = self.spinnyRect {
             spinnyRect.fillColor = SKColor.yellow
             //spinnyRect.position = spinnyShitPoint
             spinnyRect.strokeColor = SKColor.black
+            //spins for days
             spinnyRect.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(1), duration: 1)))
             
-            //shape.run(SKAction.sequence([SKAction.wait(forDuration: 0.4),
-            //SKAction.fadeOut(withDuration: 0.2),
-            //SKAction.removeFromParent()]))
-            
         }
         
-        //self.spinnyTriangle = SKShapeNode.init(path: <#T##CGPath#>)
-        
-        self.spinnyCircle = SKShapeNode.init(circleOfRadius: 50)
-        
-        if let spinnyCircle = self.spinnyCircle {
-            spinnyCircle.strokeColor = SKColor.black
-            spinnyCircle.fillColor = SKColor.green
-            
-        }
         
         
         //green rects
@@ -113,13 +96,15 @@ class GameScene: SKScene {
                 print("xpos: \(xpos)")
                 print("ypos: \(ypos)")
                 
+                //sets the rect to a random starting point
                 rect.position = CGPoint(x:
                     Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins),
                     y: Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins))
                 print("created green rect \(index) heading to x: \(xpos) y: \(ypos)")
                     
                 rect.fillColor = SKColor.green
-                var moveRect = SKAction.move(to: CGPoint(x:
+                //moves the rect to a random point over 20 sec
+                let moveRect = SKAction.move(to: CGPoint(x:
                 xpos,
                 y: ypos), duration: 20)
                 
@@ -255,10 +240,11 @@ class GameScene: SKScene {
         line.strokeColor = SKColor.white
         self.addChild(line)
         
+        // creating a timer that fires every 20 sec
         let timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { timer in
             print("You're fired!")
             
-            
+            //moves rects to a random position over 20 sec
             for rect in self.greenRects{
                 let xpos = Int.random(in: -screenWidth + screenMargins...screenWidth - screenMargins)
                 let ypos = Int.random(in: -screenHeight + screenMargins...screenHeight - screenMargins)
@@ -290,43 +276,12 @@ class GameScene: SKScene {
             }
         }
         
-        
-        
-        /*if let rect1 = self.spinnyRect?.copy() as! SKShapeNode?{
-            rect1.position = CGPoint(x: 100, y: 200)
-            //rectPoints.append(rect1.position)
-            greenRects.append(rect1)
-            self.addChild(rect1)
-            
-        }
-        
-        if let rect2 = self.spinnyRect?.copy() as! SKShapeNode?{
-            rect2.position = CGPoint(x: 50, y: 200)
-            //rectPoints.append(rect2.position)
-            greenRects.append(rect2)
-            self.addChild(rect2)
-        }
-        
-        if let rect3 = self.spinnyRect?.copy() as! SKShapeNode?{
-            rect3.position = CGPoint(x: 200, y: 200)
-            //rectPoints.append(rect3.position)
-            greenRects.append(rect3)
-            self.addChild(rect3)
-            
-        } */
-        
-        
-        
-        
-        
-        
     }
-    
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
-            n.strokeColor = SKColor.green
+            n.strokeColor = SKColor.blue
             self.addChild(n)
         }
     }
@@ -342,11 +297,12 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
-            n.strokeColor = SKColor.red
+            n.strokeColor = SKColor.blue
             self.addChild(n)
         }
     }
     
+    //returns if lines intersect or not
     func intersect(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat, x3: CGFloat, y3: CGFloat, x4: CGFloat, y4: CGFloat) -> Bool {
 
       // Check if none of the lines are of length 0
@@ -373,10 +329,8 @@ class GameScene: SKScene {
 
         return true
     }
-    
+    //loops through touched points to see if they intersect
     func checkList(points: inout [CGPoint]) -> Bool {
-        //points.append(point)
-        
         if points.count < 5 {
             return true
         }
@@ -397,10 +351,6 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        /*if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }*/
-        
         for t in touches {
             self.touchDown(atPoint: t.location(in: self))
             
@@ -413,11 +363,6 @@ class GameScene: SKScene {
             else {
                 p1touchHashes.append(t.hashValue)
             }
-            //pointList[t.hash].append(t.location(in: self))
-            //print(pointList[t.hash] ?? "save me from the nothing i've become")
-            
-           
-            
         }
     }
     
@@ -426,11 +371,9 @@ class GameScene: SKScene {
             self.touchMoved(toPoint: t.location(in: self))
             pointList[t.hash]?.append(t.location(in: self))
             if !checkList(points: &(pointList[t.hash])!){
-                print("Failed before closing statements")
+                print("I have failed you Anakin. I have failed you")
                 failure = true
             }
-            
-            
         }
     }
     
@@ -450,14 +393,12 @@ class GameScene: SKScene {
                     pointList[t.hash]?.remove(at: lastIndex)
                     
                     let path = UIBezierPath()
-                    //print("nothing is good")
                     path.move(to: (pointList[t.hash]?.first ?? CGPoint(x: 0, y: 0)))
                     for points in pointList[t.hash]!{
                         path.addLine(to: points)
                         
                     }
                     path.close()
-                    //print(path)
                     let shape = SKShapeNode(path: path.cgPath)
                     
                     
@@ -467,6 +408,7 @@ class GameScene: SKScene {
                     alpha: 1.0)
                     
                     // fuck if I know
+                    // fyi it just fades out the line
                     shape.run(SKAction.sequence([SKAction.wait(forDuration: 0.4),
                     SKAction.fadeOut(withDuration: 0.2),
                     SKAction.removeFromParent()]))
@@ -479,18 +421,14 @@ class GameScene: SKScene {
                     var redRectsRemove = [SKShapeNode]()
                     var yellowRectsRemove = [SKShapeNode]()
                     var pinkRectsRemove = [SKShapeNode]()
-                    
-                    var circlesRemove = [SKShapeNode]()
-                    
+                                        
                     // average positions of nodes to be merged
                     var greenRectAvgPos = CGPoint(x: 0,y: 0)
                     var blueRectAvgPos = CGPoint(x: 0,y: 0)
                     var redRectAvgPos = CGPoint(x: 0,y: 0)
                     var yellowRectAvgPos = CGPoint(x: 0,y: 0)
                     var pinkRectAvgPos = CGPoint(x: 0,y: 0)
-                    
-                    var circleAvgPos = CGPoint(x: 0,y: 0)
-                    
+                                        
                     // loop through objects in UI
                     for child in self.children {
                         // if node is inside path
@@ -551,18 +489,6 @@ class GameScene: SKScene {
                                 }
                             }
                             
-                            
-                            
-                            // check if circle
-                            for c in circles {
-                                if child.hash == c.hash {
-                                    print("Ladies and gentlemen, we got a circle")
-                                    circlesRemove.append(child as! SKShapeNode)
-                                    circleAvgPos = CGPoint(
-                                        x: circleAvgPos.x + child.position.x,
-                                        y: circleAvgPos.y + child.position.y)
-                                }
-                            }
                         }
                     }
                     // Calculate avg positions
@@ -586,10 +512,6 @@ class GameScene: SKScene {
                     x: pinkRectAvgPos.x / CGFloat(pinkRectsRemove.count),
                     y: pinkRectAvgPos.y / CGFloat(pinkRectsRemove.count))
                     
-                    
-                    circleAvgPos = CGPoint(
-                        x: circleAvgPos.x / CGFloat(circlesRemove.count),
-                        y: circleAvgPos.y / CGFloat(circlesRemove.count))
                     print(greenRectAvgPos)
                     print(blueRectAvgPos)
                     print(redRectAvgPos)
@@ -600,12 +522,11 @@ class GameScene: SKScene {
                     print("B Rects: \(blueRectsRemove.count)")
                     print("Y Rects: \(yellowRectsRemove.count)")
                     print("P Rects: \(pinkRectsRemove.count)")
-                    print("Circles: \(circlesRemove.count)")
 
                     var score = 0
                     
                     // multiple objects highlighted
-                    if min(greenRectsRemove.count,1) + min(circlesRemove.count,1) + min(redRectsRemove.count,1) + min(blueRectsRemove.count,1) + min(yellowRectsRemove.count,1) + min(pinkRectsRemove.count,1) > 1 {
+                    if min(greenRectsRemove.count,1) + min(redRectsRemove.count,1) + min(blueRectsRemove.count,1) + min(yellowRectsRemove.count,1) + min(pinkRectsRemove.count,1) > 1 {
                         print("not so fast buddy")
                     }
                     // removing rects
@@ -677,21 +598,6 @@ class GameScene: SKScene {
                         let set = Set(pinkRectsRemove[1..<pinkRectsRemove.endIndex]) // get all elements except first (because we added it back)
                         let filtered = pinkRects.filter {!set.contains($0)} // filter out all the rest
                         pinkRects = filtered // set to new array
-                    }
-                    // removing circles
-                    else if circlesRemove.count > 1 {
-                        score = 1
-                        for _ in 2...circlesRemove.count {
-                            score *= 10
-                        }
-                        print("git merge -c circles")
-                        self.removeChildren(in: circlesRemove) // Remove all matching circles
-                        circlesRemove[0].position = circleAvgPos // Set first match to avg position
-                        self.addChild(circlesRemove[0]) // add it back to the screen
-                        let set = Set(circlesRemove[1..<circlesRemove.endIndex]) // get all elements except first (because we added it back)
-                        
-                        let filtered = greenRects.filter {!set.contains($0)} // filter out all the rest
-                        circles = filtered // set to new array
                     }
                     // zero or one elements selected
                     else{
@@ -770,13 +676,6 @@ class GameScene: SKScene {
                     }
                     
                     print("P1 score = \(p1score), P2 score = \(p2score)")
-                    
-                    /*for rect in rectPoints{
-                        print(rect)
-                    }*/
-                    
-                    //print("Pointslist")
-                    //print(pointList[t.hash]!)
                     pointList[t.hash] = nil // clear out point list
                 }
             }
@@ -797,8 +696,6 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             self.touchUp(atPoint: t.location(in: self))
-            //pointList.append(t.location(in: self))
-            
             
         }
     }
